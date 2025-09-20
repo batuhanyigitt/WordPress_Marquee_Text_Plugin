@@ -1,0 +1,76 @@
+.announcement-banner {
+    width: 100%;
+    background: linear-gradient(90deg, #1a1a1a, #333);
+    color: white;
+    font-size: 16px;
+    padding: 15px 10px;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Keep z-index in case other elements try to overlap */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid #444;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+	position: fixed
+}
+/* Add margin to body to push content down, to be updated */
+body.has-announcement { 
+	    margin-top: 4rem;
+}
+.announcement-text {
+    display: inline-block;
+    animation: scrollText 20s linear infinite;
+    font-weight: 500;
+    color: #fff;
+    width: 100%;
+    font-size: 1.1rem;
+    white-space: nowrap; 
+}
+
+@keyframes scrollText {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.close-banner {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    margin-left: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.close-banner:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .announcement-banner {
+        font-size: 14px;
+        padding: 12px 15px;
+    }
+    .close-banner {
+        font-size: 20px;
+        padding: 6px 10px;
+    }
+	.announcement-text {
+		animation: scrollText 15s linear infinite;
+	}
+}
